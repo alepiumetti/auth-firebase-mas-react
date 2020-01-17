@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1693690aded1a4874707edb1c9242d66",
+    "revision": "4906296aca036952ee7b34cb8cfefb26",
     "url": "/calculadora-simple-react/index.html"
   },
   {
-    "revision": "2e14558faa502913f9f1",
+    "revision": "4e6aabecc7a5ddca5301",
     "url": "/calculadora-simple-react/static/css/main.d1b05096.chunk.css"
   },
   {
-    "revision": "595698351cd9643726db",
-    "url": "/calculadora-simple-react/static/js/2.01c7fb38.chunk.js"
+    "revision": "59a2d9b24e548226003e",
+    "url": "/calculadora-simple-react/static/js/2.5bbe9f9b.chunk.js"
   },
   {
     "revision": "b03343d1dfdf0242e0f4ba3806a19844",
-    "url": "/calculadora-simple-react/static/js/2.01c7fb38.chunk.js.LICENSE"
+    "url": "/calculadora-simple-react/static/js/2.5bbe9f9b.chunk.js.LICENSE"
   },
   {
-    "revision": "2e14558faa502913f9f1",
-    "url": "/calculadora-simple-react/static/js/main.9f3d031a.chunk.js"
+    "revision": "4e6aabecc7a5ddca5301",
+    "url": "/calculadora-simple-react/static/js/main.b1c9871e.chunk.js"
   },
   {
     "revision": "6c78aa90c3edf90ca476",
