@@ -8,6 +8,8 @@ import {
 
 import Auth from './Auth';
 
+/* 
+
 class Formulario extends Component{
   constructor(props){
     super(props);
@@ -23,7 +25,7 @@ class Formulario extends Component{
     this.setState(state);
   }
 
-/*   syncEmailChanges(email){
+   syncEmailChanges(email){
     this.setState({
       email:email
     })
@@ -34,7 +36,7 @@ class Formulario extends Component{
       password:password
     })
   }
- */
+  
   submitForm = () => {
     console.log(this.state);
   }
@@ -126,40 +128,33 @@ class Blog extends Component{
   }
 }
 
+ */
 
 function App() {
 
-  let nombre = "alberto";
 
   const user = useUser();
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-       
-      </header>
-      <div>
-        <Blog>
 
-        </Blog>
-      </div>
-
-      <div>
-        <Formulario/>
-      </div>
-        <Contador></Contador>
-        <br/>
-
-        <br/>
-
-
-      <div>
-      {
-          user && <p>
-          Usuario: {user.email}
-        </p>
+        {
+          user && 
+          <div>
+            <p>
+              Hola!
+            </p>
+            <p>
+              Iniciaste sesión con {user.email}
+            </p>
+          </div>
         }
         <Auth/>
+
+      </header>
+      <div>
+      
       </div>
 
       <div>

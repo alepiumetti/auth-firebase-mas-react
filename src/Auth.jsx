@@ -30,12 +30,15 @@ export default (props) => {
             {
                 !user && 
                 <div>
-                    <label htmlFor="email">Correo Electrónico</label>
+                    <label htmlFor="email">E-mail</label>
                     <input type="email" id="email" onChange={(ev)=>setEmail(ev.target.value)}/>
+                    <br/>
                     <label htmlFor="password">Contraseña</label>
                     <input type="password" id="password" onChange={(ev)=>setPassword(ev.target.value)}/>
-                    <button onClick={submit}>Crear cuenta</button>
+                    <br/>
                     <button onClick={login}>Iniciar sesión</button>
+                    <button onClick={submit}>Crear cuenta</button>
+                    
 
                 </div>
             }
