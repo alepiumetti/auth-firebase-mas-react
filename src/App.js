@@ -1,24 +1,170 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {
+  useUser
+} from 'reactfire';
+
+import Auth from './Auth';
+
+class Formulario extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  syncChanges(value,property){
+    let state = {}
+    state [property] = value;
+    this.setState(state);
+  }
+
+/*   syncEmailChanges(email){
+    this.setState({
+      email:email
+    })
+  }
+  
+  syncPasswordChanges(password){
+    this.setState({
+      password:password
+    })
+  }
+ */
+  submitForm = () => {
+    console.log(this.state);
+  }
+
+  render (){
+    return (
+      <form>
+        <input
+          onChange={(ev)=>{ this.syncChanges(ev.target.value,'email')}} 
+          type = "email" 
+          placeholder = "Email"  
+          value={this.state.email}/>
+        <input 
+          onChange={(ev)=>{ this.syncChanges(ev.target.value,'password')}}
+          type = "password" 
+          placeholder = "Contraseña" 
+          value={this.state.password}/>
+        <div>
+          <input 
+            onClick = {this.submitForm }
+            type="submit" 
+            value="iniciar Sesión" />
+        </div>
+      </form>
+    )
+  }
+}
+
+
+class Contador extends Component{
+  constructor(props){
+    super(props);
+
+    this.state ={
+      contador: 0
+    }
+  }
+
+  aumentar = () =>{
+    this.setState({
+      contador: this.state.contador + 1
+    }
+  )
+  }
+  
+  render(){
+    return <div>
+      <p>Contador: {this.state.contador}</p>
+        <button onClick={this.aumentar}>
+          Aumentar
+        </button>
+    </div>
+  }
+}
+
+class Blog extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      articles:[
+        'Mi primer componente en React',
+        'Introduccion a React',
+        'Que es React'
+      ]
+    }
+  }
+
+  componentDidMount(){
+    let promesa = fetch('https://jsonplaceholder.typicode.com/posts');
+
+    promesa.then(response => response.json()).then(data=>{
+      this.setState({
+        articles:data
+      })
+    })
+  }
+
+  render () {
+    return(
+      <div>
+        {
+          this.state.articles.map((article)=>{
+            return <p>{article.title}</p>
+          })
+        }
+ 
+      </div>
+    )
+  }
+}
+
+
 function App() {
+
+  let nombre = "alberto";
+
+  const user = useUser();
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       
       </header>
+      <div>
+        <Blog>
+
+        </Blog>
+      </div>
+
+      <div>
+        <Formulario/>
+      </div>
+        <Contador></Contador>
+        <br/>
+
+        <br/>
+
+
+      <div>
+      {
+          user && <p>
+          Usuario: {user.email}
+        </p>
+        }
+        <Auth/>
+      </div>
+
+      <div>
+        
+      </div>
     </div>
   );
 }
